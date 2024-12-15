@@ -62,9 +62,10 @@ async function status() {
 			await embeds.push(embed);
 		});
 
+		do {} while (embeds.length != apps.length);
 		await setTimeout(() => {
 			msg.edit({ embeds, content: '' });
-		}, 1500);
+		}, 1000);
 	}
 
 	await setTimeout(() => {
