@@ -64,7 +64,7 @@ async function status() {
 			if (key + 1 == config.apps.length) {
 				setTimeout(() => {
 					msg.edit({ embeds, content: '' });
-				}, 5000);
+				}, 15000);
 			}
 		});
 	}
