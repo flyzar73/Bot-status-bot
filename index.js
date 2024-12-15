@@ -5,6 +5,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 client.on(Events.ClientReady, (readyClient) => {
 	console.log(`Logged in as ${readyClient.user.tag}!`);
+	console.log('ready');
 
 	status();
 });
