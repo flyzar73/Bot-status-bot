@@ -28,7 +28,7 @@ async function status() {
 
 		let embeds = [];
 
-		await config.apps.forEach(async (app) => {
+		await config.apps.forEach(async (app, key) => {
 			let embed = new EmbedBuilder().setTitle(app.name).setColor(app.color);
 
 			if (app.description) {
@@ -60,12 +60,13 @@ async function status() {
 			}
 
 			await embeds.push(embed);
-		});
 
-		do {} while (embeds.length != config.apps.length);
-		await setTimeout(() => {
-			msg.edit({ embeds, content: '' });
-		}, 1000);
+			if (key + 1 == config.apps.length) {
+				setTimeout(() => {
+					msg.edit({ embeds, content: '' });
+				}, 5000);
+			}
+		});
 	}
 
 	await setTimeout(() => {
