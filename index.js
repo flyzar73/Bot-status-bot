@@ -50,7 +50,7 @@ async function status() {
 			}
 
 			if (app.api) {
-				const response = await fetch(app.api);
+				const response = await fetch(app.api).catch(() => {});
 				let info = {};
 				if (response) info = await response.json();
 				else info = { status: 'offline', version: 'Unknow' };
